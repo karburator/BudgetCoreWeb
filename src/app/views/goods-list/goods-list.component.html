@@ -1,0 +1,37 @@
+<div class="card">
+  <div class="card-header card-header-warning">
+    <h4 class="card-title">Items</h4>
+  </div>
+  <div class="card-body table-responsive">
+    <table class="table table-hover">
+      <thead class="text-warning">
+      <th>ID</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Nds18</th>
+      <th>Nds10</th>
+      <th>Nds0</th>
+      <th>NdsNo</th>
+      <th>NdsCalculated18</th>
+      <th>NdsCalculated10</th>
+      <th>Sum</th>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of goodList">
+        <td>{{item.Id}}</td>
+        <td>{{item.Name}}</td>
+        <td>{{item.Price}}</td>
+        <td>{{item.Quantity}}</td>
+        <td>{{item.Nds18}}</td>
+        <td>{{item.Nds10}}</td>
+        <td>{{item.Nds0}}</td>
+        <td>{{item.NdsNo}}</td>
+        <td>{{item.NdsCalculated18}}</td>
+        <td>{{item.NdsCalculated10}}</td>
+        <td>{{item.Sum}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

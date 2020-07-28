@@ -1,0 +1,29 @@
+<h3>You selected department with id = {{receiptId}}</h3>
+<div class="card">
+  <div class="card-body table-responsive">
+    <table class="table table-hover">
+      <thead class="text-warning">
+      <th>ID</th>
+      <th>Date</th>
+      <th>TotalSum</th>
+      <th>User</th>
+      <th>UserInn</th>
+      <th>CashTotalSum</th>
+      <th>EcashTotalSum</th>
+      </thead>
+      <tbody>
+      <tr>
+        <td>{{receipt.id}}</td>
+        <td>{{receipt.date.toLocaleDateString()}}</td>
+        <td>{{receipt.totalSum}}</td>
+        <td>{{receipt.user}}</td>
+        <td>{{receipt.userInn}}</td>
+        <td>{{receipt.cashTotalSum}}</td>
+        <td>{{receipt.ecashTotalSum}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<app-goods-list [goodList]="items"></app-goods-list>
