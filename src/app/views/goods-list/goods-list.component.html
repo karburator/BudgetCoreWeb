@@ -19,17 +19,17 @@
       </thead>
       <tbody>
       <tr *ngFor="let item of goodList">
-        <td>{{item.Id}}</td>
-        <td>{{item.Name}}</td>
-        <td>{{item.Price}}</td>
-        <td>{{item.Quantity}}</td>
-        <td>{{item.Nds18}}</td>
-        <td>{{item.Nds10}}</td>
-        <td>{{item.Nds0}}</td>
-        <td>{{item.NdsNo}}</td>
-        <td>{{item.NdsCalculated18}}</td>
-        <td>{{item.NdsCalculated10}}</td>
-        <td>{{item.Sum}}</td>
+        <td>{{item.id}}</td>
+        <td>{{item.product?.name}}</td>
+        <td>{{item.price}}</td>
+        <td>{{item.quantity}}</td>
+        <td>{{item.nds18}}</td>
+        <td>{{item.nds10}}</td>
+        <td>{{item.nds0}}</td>
+        <td>{{item.ndsNo}}</td>
+        <td>{{item.ndsCalculated18}}</td>
+        <td>{{item.ndsCalculated10}}</td>
+        <td>{{item.sum}}</td>
       </tr>
       </tbody>
     </table>

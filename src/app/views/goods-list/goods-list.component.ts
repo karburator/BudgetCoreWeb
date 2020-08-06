@@ -7,20 +7,17 @@ import {Good} from '../../model/Good';
   styleUrls: ['./goods-list.component.css']
 })
 export class GoodsListComponent implements OnInit, OnChanges {
-  @Input() goodList: Good[];
+  @Input() public goodList: Good[];
 
   constructor() {
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void  {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log(`changes`);
-    console.log(changes);
     if (changes.goodList.currentValue) {
        this.goodList = changes.goodList.currentValue;
-       console.log(this.goodList);
     }
   }
 

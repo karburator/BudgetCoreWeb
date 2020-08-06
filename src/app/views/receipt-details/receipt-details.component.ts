@@ -13,7 +13,7 @@ import {GoodsHandlerService} from "../../service/goods-handler.service";
 export class ReceiptDetailsComponent implements OnInit {
   receiptId: number;
   receipt: Receipt;
-  public items: Good[];
+  items: Good[];
 
   constructor(private route: ActivatedRoute,
               private receiptHandler: ReceiptsHandlerService,
@@ -29,5 +29,4 @@ export class ReceiptDetailsComponent implements OnInit {
         .subscribe(data => this.items = data);
     });
   }
-
 }

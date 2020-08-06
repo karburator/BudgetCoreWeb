@@ -4,7 +4,6 @@ import {GoodsHandlerService} from "../../service/goods-handler.service";
 import {ProductHandlerService} from "../../service/product-handler.service";
 import {Good} from "../../model/Good";
 import {Product} from "../../model/Product";
-import {BehaviorSubject, Subject} from "rxjs";
 
 @Component({
   selector: 'app-product-details',
@@ -28,9 +27,7 @@ export class ProductDetailsComponent implements OnInit {
       this.productHandler.getProduct(this.productId)
         .subscribe(data => this.product = data);
       this.goodHandler.getGoodsByProductId(this.productId)
-        .subscribe(data => {
-          this.goods = data;
-        });
+        .subscribe(data => this.goods = data);
     });
   }
 

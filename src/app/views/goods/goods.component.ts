@@ -13,7 +13,8 @@ export class GoodsComponent implements OnInit {
   constructor(private goodHandler: GoodsHandlerService) { }
 
   ngOnInit(): void {
-    this.goodList = this.goodHandler.getGoods();
+    this.goodHandler.getGoods()
+      .subscribe(data => this.goodList = data);
   }
 
 }
