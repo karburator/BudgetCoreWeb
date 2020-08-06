@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import {TestData} from "../data/TestData";
 import {Good} from "../model/Good";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
@@ -11,8 +10,8 @@ export class GoodsHandlerService {
 
   constructor(private http: HttpClient) { }
 
-  getGoods(): Good[] {
-    return TestData.Goods;
+  getGoods(): Observable<Good[]> {
+    return this.http.get<Good[]>(`http://localhost:5000/good`);
   }
 
   getReceiptGoods(receiptId: number): Observable<Good[]> {
@@ -20,7 +19,6 @@ export class GoodsHandlerService {
   }
 
   getGoodsByProductId(productId: number): Observable<Good[]> {
-    console.log(`productId: ${productId}`);
     return this.http.get<Good[]>(`http://localhost:5000/good/product/${productId}`);
   }
 }
