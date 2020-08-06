@@ -9,16 +9,22 @@
   </a></div>
   <div class="sidebar-wrapper">
     <ul class="nav">
-      <li class="nav-item" (click)="goReceipts()" [class.active]="this.router.url === '/receipts'">
+      <li class="nav-item" (click)="goReceipts()" [class.active]="this.getUrl() === '/receipts'">
         <a class="nav-link">
           <i class="material-icons">receipts</i>
           <p>Receipts</p>
         </a>
       </li>
-      <li class="nav-item" (click)="goGoods()" [class.active]="this.router.url === '/goods'">
+      <li class="nav-item" (click)="goGoods()" [class.active]="this.getUrl() === '/goods'">
         <a class="nav-link">
           <i class="material-icons">shopping_basket</i>
           <p>Goods</p>
+        </a>
+      </li>
+      <li class="nav-item" (click)="goProducts()" [class.active]="this.getUrl() === '/products'">
+        <a class="nav-link">
+          <i class="material-icons">shopping_basket</i>
+          <p>Products</p>
         </a>
       </li>
       <li class="nav-item ">

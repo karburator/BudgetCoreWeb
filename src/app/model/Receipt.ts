@@ -1,3 +1,5 @@
+import {Shop} from "./Shop";
+
 export class Receipt {
   id: number; // required
   date: Date; // required
@@ -5,8 +7,7 @@ export class Receipt {
   fiscalDocumentNumber: number; // required
   fiscalSign: number; // required
   totalSum: number; // required
-  user: string;
-  userInn: string;
+  shop: Shop;
   requestNumber: number;
   shiftNumber: number;
   // "operationType": null,

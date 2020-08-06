@@ -23,8 +23,10 @@ export class ReceiptDetailsComponent implements OnInit {
     this.route.paramMap.subscribe((params: ParamMap) => {
       const id = parseInt(params.get('id'));
       this.receiptId = id;
-      this.receipt = this.receiptHandler.getReceipt(this.receiptId);
-      this.items = this.goodHandler.getReceiptGoods(this.receiptId);
+      this.receiptHandler.getReceipt(this.receiptId)
+        .subscribe(data => this.receipt = data);
+      this.goodHandler.getReceiptGoods(this.receiptId)
+        .subscribe(data => this.items = data);
     });
   }
 

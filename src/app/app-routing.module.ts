@@ -4,6 +4,8 @@ import {ReceiptsComponent} from "./views/receipts/receipts.component";
 import {ReceiptDetailsComponent} from "./views/receipt-details/receipt-details.component";
 import {PageNotFoundComponent} from "./views/page-not-found/page-not-found.component";
 import {GoodsComponent} from "./views/goods/goods.component";
+import {ProductsComponent} from "./views/products/products.component";
+import {ProductDetailsComponent} from "./views/product-details/product-details.component";
 
 
 const routes: Routes = [
@@ -14,6 +16,11 @@ const routes: Routes = [
     component: ReceiptDetailsComponent,
   },
   { path: 'goods', component: GoodsComponent },
+  { path: 'products', component: ProductsComponent },
+  {
+    path: 'products/:id',
+    component: ProductDetailsComponent,
+  },
   { path: '**',   component: PageNotFoundComponent }
 ];
 
@@ -26,5 +33,7 @@ export const routingComponents = [
   ReceiptsComponent,
   ReceiptDetailsComponent,
   GoodsComponent,
+  ProductsComponent,
+  ProductDetailsComponent,
   PageNotFoundComponent
 ]

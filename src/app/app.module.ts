@@ -10,6 +10,11 @@ import { ReceiptDetailsComponent } from './views/receipt-details/receipt-details
 import { PageNotFoundComponent } from './views/page-not-found/page-not-found.component';
 import { GoodsListComponent } from './views/goods-list/goods-list.component';
 import { GoodsComponent } from './views/goods/goods.component';
+import { HttpClientModule} from "@angular/common/http";
+import { ProductsComponent } from './views/products/products.component';
+import { ProductDetailsComponent } from './views/product-details/product-details.component';
+import {GoodsHandlerService} from "./service/goods-handler.service";
+import {ProductHandlerService} from "./service/product-handler.service";
 
 @NgModule({
   declarations: [
@@ -19,13 +24,20 @@ import { GoodsComponent } from './views/goods/goods.component';
     ReceiptDetailsComponent,
     PageNotFoundComponent,
     GoodsListComponent,
-    GoodsComponent
+    GoodsComponent,
+    ProductsComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [ReceiptsHandlerService],
+  providers: [
+    ReceiptsHandlerService,
+    GoodsHandlerService,
+    ProductHandlerService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,19 +1,23 @@
 import { Injectable } from '@angular/core';
-import {TestData} from "../data/TestData";
 import {Receipt} from "../model/Receipt";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ReceiptsHandlerService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  getReceipts(): Receipt[] {
-    return TestData.Receipts;
+  getReceipts(): Observable<Receipt[]> {
+    // const httpHeaders = new HttpHeaders({ 'Access-Control-Allow-Origin': '*' });
+    // const options = { headers: httpHeaders };
+    // return this.http.get<Receipt[]>(`http://localhost:5000/reciept`, options);
+    return this.http.get<Receipt[]>(`http://localhost:5000/reciept`);
   }
 
-  getReceipt(id: number): Receipt {
-    return TestData.Receipts.filter(el => el.id === id)[0];
+  getReceipt(id: number): Observable<Receipt> {
+    return this.http.get<Receipt>(`http://localhost:5000/reciept/${id}`);
   }
 }

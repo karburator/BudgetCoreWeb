@@ -20,4 +20,12 @@ export class LeftMenuComponent implements OnInit {
   goGoods() {
     this.router.navigate(['/goods']);
   }
+
+  getUrl(): string {
+    return this.router.url;
+  }
+
+  goProducts() {
+    this.router.navigate(['/products']);
+  }
 }
