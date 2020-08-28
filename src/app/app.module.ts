@@ -15,6 +15,8 @@ import { ProductsComponent } from './views/products/products.component';
 import { ProductDetailsComponent } from './views/product-details/product-details.component';
 import {GoodsHandlerService} from "./service/goods-handler.service";
 import {ProductHandlerService} from "./service/product-handler.service";
+import { ChartExampleComponent } from './views/chart-example/chart-example.component';
+import {ChartistModule} from "ng-chartist";
 
 @NgModule({
   declarations: [
@@ -26,17 +28,19 @@ import {ProductHandlerService} from "./service/product-handler.service";
     GoodsListComponent,
     GoodsComponent,
     ProductsComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    ChartExampleComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ChartistModule
   ],
   providers: [
     ReceiptsHandlerService,
     GoodsHandlerService,
-    ProductHandlerService
+    ProductHandlerService,
   ],
   bootstrap: [AppComponent]
 })

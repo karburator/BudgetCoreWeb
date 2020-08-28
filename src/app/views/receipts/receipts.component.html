@@ -12,16 +12,20 @@
       <th>UserInn</th>
       <th>CashTotalSum</th>
       <th>EcashTotalSum</th>
+      <th>Details</th>
       </thead>
       <tbody>
       <tr *ngFor="let receipt of receipts">
         <td>{{receipt.id}}</td>
         <td>{{receipt.date}}</td>
-        <td>{{receipt.totalSum}}</td>
-        <td>{{receipt.shop ? receipt.shop.user : undefined}}</td>
-        <td>{{receipt.shop ? receipt.shop.userInn : undefined}}</td>
-        <td>{{receipt.cashTotalSum}}</td>
-        <td>{{receipt.ecashTotalSum}}</td>
+        <td>{{receipt.totalSum | currency: 'RUB':'symbol-narrow':'1.2-2'}}</td>
+        <td>{{receipt.user}}</td>
+        <td>{{receipt.userInn}}</td>
+        <td>{{receipt.cashTotalSum | currency: 'RUB':'symbol-narrow':'1.2-2'}}</td>
+        <td>{{receipt.ecashTotalSum | currency: 'RUB':'symbol-narrow':'1.2-2'}}</td>
+        <td>
+          <input type="button" (click)="goDetails(receipt.id)" value="details">
+        </td>
       </tr>
       </tbody>
     </table>
