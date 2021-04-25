@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {ProductHandlerService} from "../../service/product-handler.service";
-import {Product} from "../../model/Product";
-import { Router} from "@angular/router";
+import {ProductHandlerService} from '../../service/product-handler.service';
+import {Product} from '../../model/Product';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -20,7 +20,7 @@ export class ProductsComponent implements OnInit {
       .subscribe(data => this.products = data);
   }
 
-  goDetails(id: number) {
-    this.router.navigate([`/products/${id}`]);
+  async goDetails(id: number): Promise<void> {
+    await this.router.navigate([`/products/${id}`]);
   }
 }

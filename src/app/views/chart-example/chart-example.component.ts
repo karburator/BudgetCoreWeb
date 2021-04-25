@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import {
-  IBarChartOptions,
-  IChartistAnimationOptions,
-  IChartistData
-} from 'chartist';
-import { ChartEvent, ChartType } from 'ng-chartist';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, ParamMap} from '@angular/router';
+import {IBarChartOptions, IChartistData} from 'chartist';
+import {ChartEvent, ChartType} from 'ng-chartist';
+import {ChartPoint} from '../../model/ChartPoint';
+import {ProductHandlerService} from '../../service/product-handler.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-chart-example',
@@ -12,37 +12,19 @@ import { ChartEvent, ChartType } from 'ng-chartist';
   styleUrls: ['./chart-example.component.css']
 })
 export class ChartExampleComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  productId: number;
+  chartPoints: ChartPoint[];
 
   type: ChartType = 'Bar';
-  data: IChartistData = {
-    labels: [
-      'Jan',
-      'Feb',
-      'Mar',
-      'Apr',
-      'May',
-      'Jun',
-      'Jul',
-      'Aug',
-      'Sep',
-      'Oct',
-      'Nov',
-      'Dec'
-    ],
-    series: [
-      [5, 4, 3, 7, 5, 10, 3, 4, 8, 10, 6, 8],
-      [3, 2, 9, 5, 4, 6, 4, 6, 7, 8, 7, 4]
-    ]
-  };
+  data: IChartistData;
 
   options: IBarChartOptions = {
     axisX: {
-      showGrid: false
+      showGrid: false,
+      labelInterpolationFnc: val => {
+        const dt = new Date(val);
+        return moment(dt).format('YYYY-MM-DD');
+      }
     },
     height: 300
   };
@@ -61,5 +43,26 @@ export class ChartExampleComponent implements OnInit {
       }
     }
   };
+
+  constructor(private route: ActivatedRoute,
+              private productHandler: ProductHandlerService) { }
+
+  ngOnInit(): void {
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      this.productId = parseInt(params.get('id'), null);
+      this.productHandler.getProductChart(this.productId)
+        .subscribe(data => {
+          this.chartPoints = data;
+          this.data = {
+            labels: this.chartPoints.map(el => el.date),
+            series: [this.chartPoints.map(el => el.price)]
+          };
+        });
+    });
+  }
+
+
+
+
 
 }

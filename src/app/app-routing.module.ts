@@ -7,7 +7,6 @@ import {GoodsComponent} from "./views/goods/goods.component";
 import {ProductsComponent} from "./views/products/products.component";
 import {ProductDetailsComponent} from "./views/product-details/product-details.component";
 
-
 const routes: Routes = [
   { path: '', redirectTo: '/receipts', pathMatch: 'full' },
   { path: 'receipts', component: ReceiptsComponent },

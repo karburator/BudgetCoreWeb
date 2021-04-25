@@ -15,7 +15,7 @@ export class GoodsListComponent implements OnInit, OnChanges {
   ngOnInit(): void  {
   }
 
-  ngOnChanges(changes: SimpleChanges) {
+  ngOnChanges(changes: SimpleChanges): void {
     if (changes.goodList.currentValue) {
        this.goodList = changes.goodList.currentValue;
     }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {ReceiptsHandlerService} from "../../service/receipts-handler.service";
-import {Receipt} from "../../model/Receipt";
-import {Router} from "@angular/router";
+import {ReceiptsHandlerService} from '../../service/receipts-handler.service';
+import {Receipt} from '../../model/Receipt';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-receipts',
@@ -20,7 +20,7 @@ export class ReceiptsComponent implements OnInit {
       .subscribe(data => this.receipts = data);
   }
 
-  goDetails(id: number) {
-    this.router.navigate([`/receipts/${id}`]);
+  async goDetails(id: number): Promise<void> {
+    await this.router.navigate([`/receipts/${id}`]);
   }
 }

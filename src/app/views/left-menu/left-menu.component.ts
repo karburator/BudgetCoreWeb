@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, ParamMap } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-left-menu',
@@ -13,19 +13,19 @@ export class LeftMenuComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  goReceipts() {
-    this.router.navigate(['/receipts']);
+  async goReceipts(): Promise<void> {
+    await this.router.navigate(['/receipts']);
   }
 
-  goGoods() {
-    this.router.navigate(['/goods']);
+  async goGoods(): Promise<void> {
+    await this.router.navigate(['/goods']);
   }
 
   getUrl(): string {
     return this.router.url;
   }
 
-  goProducts() {
-    this.router.navigate(['/products']);
+  async goProducts(): Promise<void> {
+    await this.router.navigate(['/products']);
   }
 }
